@@ -15,11 +15,11 @@ public class StateWrapper {
         map.put("2", new ServerStats());
     }
 
-    public void set(String s, StateEnum e){
+    public synchronized void set(String s, StateEnum e){
         map.get(s).setSt(e);
     }
 
-    public StateEnum get(String s){
+    public synchronized StateEnum get(String s){
        return map.get(s).getSt();
     }
 

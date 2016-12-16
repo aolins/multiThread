@@ -48,8 +48,8 @@ public class StateTest {
 
         t2 = new Thread(new Runnable() {
             public void run() {
-                brkSetterThreadEntered.set(true);
                 synchronized (mx2) {
+                    brkSetterThreadEntered.set(true);
                     try {
                         mx2.wait();
                     } catch (InterruptedException e) {
@@ -75,7 +75,7 @@ public class StateTest {
                        && brkSetterReleasedMarker.get()
                        && brkGetterReleased.get()
                 )) { // all breakpoints passed
-                    if (brkGetEntered.get() && brkSetterThreadEntered.get() && !brkSetterReleasedMarker.get()) {
+                    if (brkGetEntered.get() && brkSetterThreadEntered.get() ) {
                         // setter thread is before SET waiting; getter thread inside get method waiting; and we have never released setter thread
                         synchronized (mx2) {mx2.notify(); }
                         brkSetterReleasedMarker.set(true);
