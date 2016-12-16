@@ -18,7 +18,7 @@ public class StateTest {
 
 
     Integer mx1 = new Integer(1);
-rd    Integer mx2 = new Integer(2);
+    Integer mx2 = new Integer(2);
 
 
     AtomicBoolean brkGetEntered = new AtomicBoolean(false);
